@@ -24,7 +24,7 @@
   
   
   
-      <button type="button" class="btn btn-primary btn-lg" onclick="getData()">Get Details</button>      
+      <button type="button" class="btn btn-primary btn-lg" onClick="getData()">Get Details</button>      
 
   
     </div>
@@ -35,72 +35,64 @@
     function getData() {
         let country_name = country.value;
         fetch(`https://restcountries.com/v3.1/name/${country_name}?fullText=true`).
-            then(res => res.json()).then(data => displayValues(data));
+            then(res => res.json()).then(data => displayValues(data))
 
     }
     function displayValues(country_data) {
-        let country_name = country.value;
+      
 
-        let name = country_data[0].name;
+let name=country_data[0].name.common
+        
 
-        let capital = country_data[0].capital;
-        let languages = country_data[0].languages.eng;
-        let lang2 = country_data[0].languages.hin;
-        let lang3 = country_data[0].languages.tam;
-        let region = country_data[0].region;
-        let population = country_data[0].population;
-        let currencies = country_data[0].currencies.INR.name;
-        let symbol = country_data[0].currencies.INR.symbol;
+        
 
-        let flag = country_data[0].flags.png;
+let capital = country_data[0].capital;
+    
+        
+       let population = country_data[0].population;
+      let currencies = country_data[0].name.official
+
+         let flag = country_data[0].flags.png;
 
         let html_data = `<!-- Button trigger modal -->
 
-<!-- Modal -->
+ <!-- Modal -->
 <div class="modal-dialog modal-s" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-content">
         <div class="country_modal">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">know About ${country_name}</h2>
+              <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">know About ${name}</h2>
           
-      </div>
+       </div>
       <div class="modal-body">
         
         <img src="${flag}" class="card-img-top" alt="...">
      
     
-    </div>
-    <div class="modal-body">
-       CAPITAL: ${capital}
- </div>
-      
-        
- <div class="modal-body">
-       LANGUAGES: ${languages},
-       ${lang2},${lang3}
      </div>
      <div class="modal-body">
-
-       REGION :${region}
-      </div>
+                  OFFICIAL NAME :${currencies} 
       
+      </div>
+     <div class="modal-body">
+        CAPITAL: ${capital}
+  </div>
+      
+        
+ 
+     
     
         
-      <div class="modal-body">
+       <div class="modal-body">
        POPULATION :${population}
        </div>
       
      
-       <div class="modal-body">
-          
-       CURRENCY :${currencies} ${symbol}
-      
+     
       </div>
-      </div>
+         <div class="modal-body">
     
-    <div class="modal-body">
-    
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
     
      
@@ -109,10 +101,10 @@
       </div>
      
   </div>
-</div>`
-        document.querySelector("#result").innerHTML = html_data
+ </div>`
+         document.querySelector("#result").innerHTML = html_data
 
-    }
+}
 </script>
 
 </html>
