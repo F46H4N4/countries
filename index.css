@@ -1,11 +1,11 @@
 .country_modal{
-    width: 500px;
+    width: 350px;
     padding-right: 10px;
 
     
 }
 img{
-    width: 500px;
+    width: 300px;
 height:150px;
 }
 body{
@@ -21,5 +21,6 @@ body{
     color:rgb(0, 4, 255);
 }
 #flag{
-    padding-right: 200px;
+    padding-right: 400px;
+    width:650px;
 }
